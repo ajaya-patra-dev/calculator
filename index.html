@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Engineering Calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main class="app"><header>
+        <div class="logo">∑</div>
+        <div>
+            <h1>Engineering Calculator</h1>
+            <p>Scientific • Engineering • Unit conversion</p>
+        </div>
+        <button id="theme">☼</button>
+        <button id="historyBtn">◷</button>
+    </header>
+    <section class="display">
+        <div class="meta">
+            <span id="mode">DEG</span>
+            <span id="mem"></span>
+            <span id="status">Ready</span>
+        </div>
+        <div id="expr">0</div>
+        <div class="answer">
+            <strong id="result">0</strong>
+            <button id="copy">Copy</button>
+        </div>
+    </section>
+    <nav>
+        <button class="tab active" data-tab="calc">Scientific</button>
+        <button class="tab" data-tab="convert">Conversions</button>
+        <button class="tab" data-tab="constants">Constants</button>
+    </nav>
+    <section id="calc" class="panel active">
+        <div class="tools">
+            <button data-act="angle">DEG/RAD</button>
+            <button data-act="back">⌫ Backspace</button>
+            <button data-act="ce">CE</button>
+            <button data-act="clear">AC</button>
+        </div>
+        <div class="keys">
+<button class="fn" data-v="("> ( </button>
+<button class="fn" data-v=")"> ) </button>
+<button class="fn" data-v="π">π</button>
+<button class="fn" data-v="e">e</button>
+<button class="fn" data-v="Ans">Ans</button>
+<button class="fn" data-v="sin(">sin</button>
+<button class="fn" data-v="cos(">cos</button>
+<button class="fn" data-v="tan(">tan</button>
+<button class="fn" data-v="asin(">sin⁻¹</button>
+<button class="fn" data-v="acos(">cos⁻¹</button>
+<button class="fn" data-v="atan(">tan⁻¹</button>
+<button class="fn" data-v="ln(">ln</button>
+<button class="fn" data-v="log(">log</button>
+<button class="fn" data-v="sqrt(">√</button>
+<button class="fn" data-v="abs(">abs</button>
+<button class="fn" data-v="sinh(">sinh</button>
+<button class="fn" data-v="cosh(">cosh</button>
+<button class="fn" data-v="tanh(">tanh</button>
+<button class="fn" data-v="exp(">eˣ</button>
+<button class="fn" data-v="!">n!</button>
+<button class="fn" data-v="^2">x²</button>
+<button class="fn" data-v="^">xʸ</button>
+<button class="fn" data-v="10^(">10ˣ</button>
+<button class="fn" data-v="1/(">1/x</button>
+<button class="fn" data-v="mod">mod</button>
+<button data-v="7">7</button>
+<button data-v="8">8</button>
+<button data-v="9">9</button>
+<button class="op" data-v="÷">÷</button>
+<button class="op" data-v="%">%</button>
+<button data-v="4">4</button>
+<button data-v="5">5</button>
+<button data-v="6">6</button>
+<button class="op" data-v="×">×</button>
+<button class="op" data-v="−">−</button>
+<button data-v="1">1</button>
+<button data-v="2">2</button>
+<button data-v="3">3</button>
+<button class="op" data-v="+">+</button>
+<button class="equal" data-act="equals">=</button>
+<button data-v="0">0</button>
+<button data-v=".">.</button>
+<button data-v="EE">EE</button>
+<button data-v="Ans">Ans</button>
+<button class="op" data-v="^">xʸ</button>
+</div>
+<div class="memory">
+    <button data-act="mc">MC</button>
+    <button data-act="mr">MR</button>
+    <button data-act="mplus">M+</button>
+    <button data-act="mminus">M−</button>
+    <button data-act="ms">MS</button>
+</div>
+<p class="hint">Keyboard: Enter = calculate · Esc = clear · Backspace = delete.</p>
+</section>
+<section id="convert" class="panel">
+    <h2>Unit converter</h2>
+    <label>Category
+        <select id="category">
+            <option>Length</option>
+            <option>Area</option>
+            <option>Volume</option>
+            <option>Mass</option>
+            <option>Time</option>
+            <option>Speed</option>
+            <option>Temperature</option>
+            <option>Pressure</option>
+            <option>Energy</option>
+            <option>Power</option>
+            <option>Force</option>
+            <option>Angle</option>
+            <option>Digital storage</option>
+        </select>
+    </label>
+    <div class="conv">
+        <label>Value
+            <input id="value" type="number" value="1" step="any">
+        </label>
+        <label>From
+            <select id="from"></select>
+        </label>
+        <button id="swap">⇄ Swap</button>
+        <label>To
+            <select id="to"></select>
+        </label>
+    </div>
+    <div class="converted">
+        <span>Result</span>
+        <strong id="converted">0.3048</strong>
+    </div>
+    <button id="use" class="wide">Use result in calculator</button>
+</section>
+<section id="constants" class="panel">
+    <h2>Engineering constants</h2>
+    <p class="hint">Tap any constant to insert its value.</p>
+    <div id="constantList" class="constants"></div>
+</section>
+</main>
+<aside id="drawer">
+    <div class="drawerhead">
+        <h2>History</h2>
+        <button id="close">✕</button>
+    </div>
+    <button id="clearHistory">Clear history</button>
+    <div id="historyList"></div>
+</aside>
+<div id="toast"></div>
+<footer>Engineering Calculator · Verify critical engineering results independently.</footer>
+<script src="script.js"></script>
+</body>
+</html>
